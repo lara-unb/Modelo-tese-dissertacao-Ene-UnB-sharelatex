@@ -1,0 +1,414 @@
+%% These files were modified in Lyx by:
+%           Lus F. C. Fgueiredo, Fev., 2017.
+%% Git repo for Lyx version are available at:
+%%          https://github.com/lara-unb/DOCUMENTS/tree/master/templates
+%% Latex version for sharelatex and overleaf v2 ported by:
+%%          Vinícius Galvão Guimarães
+
+%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[authoryear]{natbib}
+\usepackage{xargs}[2008/03/08]
+\usepackage{import}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+    
+ 	\usepackage{ft4unb}
+  \theoremstyle{plain}
+  \ifx\thechapter\undefined
+    \newtheorem{thm}{\protect\theoremname}
+  \else
+    \newtheorem{thm}{\protect\theoremname}[chapter]
+  \fi
+  \theoremstyle{definition}
+  \ifx\thechapter\undefined
+    \newtheorem{example}{\protect\examplename}
+  \else
+    \newtheorem{example}{\protect\examplename}[chapter]
+  \fi
+  \theoremstyle{definition}
+  \ifx\thechapter\undefined
+    \newtheorem{defn}{\protect\definitionname}
+  \else
+    \newtheorem{defn}{\protect\definitionname}[chapter]
+  \fi
+  \theoremstyle{plain}
+  \ifx\thechapter\undefined
+    \newtheorem{lem}{\protect\lemmaname}
+  \else
+    \newtheorem{lem}{\protect\lemmaname}[chapter]
+  \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%%% PACOTES: FONTE  (VERIFICAR SE ESTÃO INSTALADOS)
+\usepackage[T1]{fontenc}
+
+
+%%% PACOTES: GRAFICOS, TABELAS ETC
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{subfig}
+\usepackage{array}
+
+%%% PACOTES: ALGORITMOS
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%%% PACOTES: OUTROS
+\usepackage{pdfpages}
+
+
+%%% PACOTES NECESSÁRIOS PELO TEMPLATE (JÁ INSTALADOS):
+%%% color, [usenames,dvipsnames,svgnames,table]{xcolor}
+%%% {eso-pic,graphicx}, mdframed, tcolorbox
+%%% times, geometry, import, ifthen, calc,{xstring,xifthen}
+
+
+
+
+
+
+
+
+%%###################%%###################
+%%################### 
+%%###################   NOVO AMBIENTE: laranote
+%%###################
+%%###################%%###################
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=false,
+  backgroundcolor=gray!15,
+  font=\small,
+    skipabove=\baselineskip,
+    skipbelow=\baselineskip,
+%  roundcorner=100mm,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innertopmargin=10pt,
+%  innerrightmargin=15pt,
+  innerbottommargin=10pt,
+%  linewidth = 3pt,
+%  linecolor=red!60!black!50,
+%    nobreak=false,
+]{laranote}
+
+
+
+
+
+
+
+
+
+
+%%###################%%###################
+%%################### 
+%%###################   NOVO AMBIENTE: Example
+%%###################
+%%###################%%###################
+\newtheoremstyle{myExamStyle}%(blank means default value)
+{}%Space above
+{}%Space below
+{}%Body font
+{}%Indent amount
+{\color{Maroon}\scshape\bfseries}%theorem head font
+{}%Punctuation after theorem head
+{.5em}%Space after theorem head
+{}%Theorem head spec
+
+%Define example with the new style
+\theoremstyle{myExamStyle}
+\newtheorem{reexample}{Example}[chapter]
+
+\renewenvironment{example}
+{%begin{<environment_name>} is replaced with the contents between these first curly brackets
+\begin{tcolorbox} [
+breakable,
+boxsep=8pt,%distance from the border
+left=0pt,%distance from the left
+right=0pt, %distance from the right
+top=0pt,%distance from the top
+arc=0pt,%radius of round corners
+boxrule=1pt,%border thickness
+toprule=1pt,%top border thickness
+%bottomrule=1pt,
+colframe=Maroon,%Border color
+colback=White%Background color
+]
+\begin{reexample}
+}
+%The argument of <environment_name> is placed in between
+{%end{<environment_name>} is replaced with the contents between these second curly brackets
+\end{reexample}
+\end{tcolorbox}
+}
+
+
+
+
+%%###################%%###################
+%%################### 
+%%###################   NOVO AMBIENTE: Definition
+%%###################
+%%###################%%###################
+\newtheoremstyle{myDefinitionStyle}%(blank means default value)
+{}{}{}{}%Space above and below | body font | Indent amount
+{\color{Maroon!80!orange!80!black!80}\scshape\bfseries}%theorem head font
+{}{.5em}{}%Punctuation after theorem head | %Space after theorem head | %Theorem head spec
+
+%Define example with the new style
+\theoremstyle{myDefinitionStyle}
+\newtheorem{reDefinition}{Definition}[chapter]
+
+\let\origdescription\defn
+\let\newdescription\reDefinition
+\renewenvironment{defn}{%\stepcounter{defn}%
+\noindent%
+\begin{tcolorbox}[%width=4in,
+breakable,
+boxsep=8pt,
+left=0pt,
+right=0pt,
+top=2pt,
+arc=2pt,
+boxrule=0pt,toprule=2pt,bottomrule=2pt,
+colframe=gray!30!black!30,
+colback=gray!10!orange!5]
+\newdescription
+}
+{
+\end{tcolorbox}\ignorespacesafterend 
+ 
+\vspace{10pt} 
+ 
+}
+
+
+
+
+%%###################%%###################
+%%################### 
+%%###################   NEW-COMMANDS FOR THEOREM & LEMMA ENVIRONMENTS
+%%###################
+%%###################%%###################
+\newcommand\removenontitle[1]{%{#1}\ifx\tempa\empty
+%\if\relax\detokenize{#1}\relax vazio \else XX #1 \fi
+\ifthenelse{\equal{#1}{opt}}{}{#1}}
+
+
+% Verde original
+%\newcommand\corteoremafundo{gray!60!green!60}\newcommand\corteorematitle{black!95!green!70} 
+% Verde escuro
+\newcommand\corteoremafundo{black!80!green!70}\newcommand\corteorematitle{black!95!green!70} 
+% Marrom claro
+%\newcommand\corteoremafundo{Maroon!60!gray!60}\newcommand\corteorematitle{Maroon!80!orange!80!black!80}
+% Cor da numeracao capitulos
+%\newcommand\corteoremafundo{black!70!bananamania!70}\newcommand\corteorematitle{black!60!bananamania!95}
+
+
+\def\teoremaestilo{2} % SELECIONE ENTRE ESTILOS 1 e 2
+
+
+%%###################%%###################
+%%################### 
+%%###################   NOVO AMBIENTE: THEOREM
+%%###################
+%%###################%%###################
+
+%\newcommand{\testexyz}[1]{\textcolor{black}{\textbf{Theorem \thethm} \ \ \ifthenelse{\equal{#1}{x}}{}{#1}}}
+\newcommand{\newtheoremtitlemacro}[1]{\textcolor{black}{\textbf{Theorem \thethm} \ \ \removenontitle{#1}}}
+
+
+\newtheoremstyle{named}{}{}{}{}{\itshape}{ }{.0em}{\noindent \thmnote{#3's }}
+\theoremstyle{named}
+\newtheorem{theorem}{}[chapter] 
+ 
+\let\newteorema\theorem
+\renewenvironment{thm}{\newteorema}{}
+\let\origtheorem\thm 
+ 
+\renewenvironment{thm}[1][opt]{\addtocounter{thm}{+1}%\stepcounter{thm}%  
+\noindent%\centering\hspace{20pt}%\begin{minipage}[t]{0.90\linewidth}%
+\begin{tcolorbox}[%
+breakable,
+colback=gray!5!,
+colframe=\corteoremafundo,
+title={\ifthenelse{\equal{\teoremaestilo}{1}}{\newtheoremtitlemacro{#1}}{}}
+% 
+]% 
+\ifthenelse{\equal{\teoremaestilo}{1}}%
+{}%
+{\textcolor{\corteorematitle}{{\large \textbf{Theorem \thethm} \ \ \textbf{\textit{\removenontitle{#1}}}} }}%  
+\origtheorem
+}
+{\end{tcolorbox}%\end{minipage}
+\ignorespacesafterend
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%###################%%###################
+%%################### 
+%%###################   NOVO AMBIENTE: LEMMA
+%%###################
+%%###################%%###################
+\newtheoremstyle{myLemma}%(blank means default value)
+{}{}{}{}%Space above and below | body font | Indent amount
+{\color{Maroon!80!orange!80!black!80}\scshape\bfseries}%theorem head font
+{}{.5em}{}%Punctuation after theorem head | %Space after theorem head | %Theorem head spec
+
+%Define example with the new style
+%\theoremstyle{myLemmaStyle}
+\newtheorem{reLemma}{Lemma}[chapter]
+
+\let\origlemma\lem
+\let\newlemma\reLemma
+\renewenvironment{lem}{%\stepcounter{defn}%
+\noindent%
+\begin{tcolorbox}[%width=4in,
+breakable,
+boxsep=8pt,
+left=0pt,
+right=0pt,
+top=2pt,
+arc=2pt,
+boxrule=0pt,toprule=2pt,bottomrule=2pt,
+colback=gray!5,
+colframe=\corteoremafundo]
+\newlemma
+}
+{
+\end{tcolorbox}\ignorespacesafterend 
+ 
+\vspace{10pt} 
+ 
+}
+
+\makeatother
+
+\usepackage{babel}
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\examplename}{Example}
+  \providecommand{\lemmaname}{Lemma}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\titulolinhas{}
+
+\titulolinhas[Versão em \LyX{}]{Template em LaTeX para dissertações do ENE:}
+
+\maketitle
+
+\autores{Margaret Hamilton}
+
+\autores{Minch Yoda}
+
+
+\grau{Engenheiro Mecatrônico}{Trabalho de Graduação}{Engenharia Mecatrônica}{Engenheiro}
+
+\datainfo{Janeiro}{01}{2017}
+
+\titulolinguas{LaTeX Template - LyX Version}{Template em Latex para dissertações do ENE: Versão Lyx}
+
+
+\orientador[Who, Dr.]{Strange, Dr.}
+
+\membrodabanca[Orientador]{Prof. Dr. Strange \textendash{} ENE/Universidade de Brasília }
+
+\membrodabanca[Membro Interno]{Prof. Dr. Jhon H. Watson \textendash{} Dep./Universidade }
+
+\membrodabanca[Membro Externo]{Dr. Evil \textendash{} Dep./Universidade }
+
+\catalogonome[Hamilton, M., Yoda, M.]{Hamilton, Margaret; Yoda, Minch,}
+
+\catalogoinfo{PPGEA.TD-001/11}{Palavra 1}{Palavra 2}{Palavra 3}{Palavra 4}{xi+100}
+
+% DEDICATORIA: 
+% Para adicionar dedicatoria escreva abaixo nos itens. Para deletar a dedicatoria, apenas deixe em branco. 
+% Texto primeiro autor 
+\dedicatoriaautori{Dedicatória escrita pelo primeiro autor: \textsc{First Letter} FIRST letter do autor 1}
+% Texto segundo autor
+\dedicatoriaautorii{Dedicatória do autor 2}
+% Texto terceiro autor
+\dedicatoriaautoriii{Dedicatória do autor 3}
+
+%AGRADECIMENTOS
+% Texto primeiro autor 
+\agradecimentosautori{Primeira página de agradecimentos} 
+% Conteudo da segunda pagina (caso agradecimentos sejam muito extensos)
+\agradecimentosautorcont{ }
+% Texto segundo autor
+\agradecimentosautorii{}
+% Texto terceiro autor
+\agradecimentosautoriii{}
+
+\runfrontend{}
+
+\import{}{macros.tex}
+\import{parts/}{abstract}
+
+\sumario
+
+\listadefiguras
+
+\listadetabelas
+
+\markboth{}{}
+
+\import{parts/}{symbols}
+
+\import{parts/}{notation}
+
+%CORPO PRINCIPAL
+\mainmatter 
+\setcounter{page}{1} \pagestyle{plain} 
+
+\import{parts/}{capt_01}
+
+\import{parts/}{capt_02}
+
+\part*{APPENDIX}
+
+
+\appendix
+\import{parts/}{appendix1}
+
+%BIBLIOGRAPHY
+\addcontentsline{toc}{chapter}{BIBLIOGRAPHY} 
+
+\bibliographystyle{chicago}
+\bibliography{bibliography}
+
+\end{document}
