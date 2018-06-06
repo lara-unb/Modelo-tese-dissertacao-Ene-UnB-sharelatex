@@ -73,14 +73,15 @@
 %%###################%%###################
 
 % COMANDOS: GRAU
-\newcommand{\grau}[4]{%
+\newcommand{\grau}[5]{%
     \def\graunome{#1}%
     \def\graunomeshort{#4}%
     \def\tipodemonografianome{#2}
-    \def\engenharia{#3}
+    \def\departamento{#3}
+    \def\departamentosigla{#5}
 }%
 \providecommand\graunomeshort{Engenheiro}\providecommand\graunome{Engenheiro Mecatrônico}
-\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\engenharia{Engenharia Mecatrônica}
+\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}
 
 
 % COMANDOS: AUTORES
@@ -189,9 +190,9 @@
 
 
 %Comandos para a parte de ficha catalográfica
-\newcommand{\catalogoinfo}[6]{
+\newcommand{\catalogoinfo}[7]{
 	\def\publicacaonome{#1}%
-	\def\numeropaginascatalogonome{#6}%
+	\def\numeropaginascatalogoinicio{#6}\def\numeropaginascatalogonome{#7}%
 	\def\palavraschavecatalogoinome{#2}\def\palavraschavecatalogoiinome{#3}\def\palavraschavecatalogoiiinome{#4}\def\palavraschavecatalogoivnome{#5}	
 }
 \providecommand\numeropaginascatalogonome{}
@@ -277,9 +278,9 @@
 	\end{tabular}\\}
 % \vspace*{9pt}
 \vspace*{8mm}
-{\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\engenharia}}\\
+{\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\departamento}}\\
 \vspace*{2pt}
-{\large\bf DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA}\\
+{\large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 \placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
 \placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
 \end{center}
@@ -302,7 +303,7 @@
 \vspace*{3.5pt}
 {\fontsize{11.5}{1.2}\selectfont FACULDADE DE TECNOLOGIA}\\
 \vspace*{3.5pt}
-{\fontsize{11.5}{1.2}\selectfont DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA}\\
+{\fontsize{11.5}{1.2}\selectfont DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 
 \vspace*{2.25cm}
 
@@ -325,12 +326,12 @@
 
 \end{center}
 
-\StrLen{\engenharia}[\titulosize]
+\StrLen{\departamento}[\titulosize]
 \ifthenelse{\titulosize > 35}{\newcommand{\sizeengtable}{0.7}}{\newcommand{\sizeengtable}{0.55}}
 
 \placetextbox{0.5}{0.26}{%
 	\begin{tabular}{>{\centering}p{\sizeengtable\columnwidth}}
-		\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\engenharia}}
+		\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\departamento}}
 	\end{tabular}%
 }
 
@@ -428,7 +429,7 @@
 %%###################%%###################
 % \newcommand{\fichacatalografica}
 % {	
-	\def\titulocatalogonome{\titulolinhainome \titulolinhaiinome}
+	\def\titulocatalogonome{\titulolinhainome~\titulolinhaiinome}
 	\begin{titlepage}
 	{
 		\flushleft{\textbf{FICHA CATALOGR\'{A}FICA}}\\
@@ -436,21 +437,22 @@
 		\fbox{
  		\parbox{\linewidth}{
 		\MakeUppercase{\autorcatalogonome}\\
-		\titulocatalogonome\ [Distrito Federal] \anonome.\\
-		\numeropaginascatalogonome~p., 210 x 297 mm (ENE/FT/UnB, \graunomeshort, \engenharia, \anonome).\\
+		\titulocatalogonome\ \newline
+		[Distrito Federal] \anonome.\\
+		\numeropaginascatalogoinicio, \numeropaginascatalogonome p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \departamento, \anonome).\\
 		\tipodemonografianome~-- Universidade de Bras\'{i}lia, Faculdade de Tecnologia.\\
-		Departamento de Engenharia El\'{e}trica\\
+		Departamento de \departamento\\
 		\begin{tabular}{lll}
 		1. \palavraschavecatalogoinome & \hspace{4cm} &  2. \palavraschavecatalogoiinome \hspace{2cm} \\
 		3. \palavraschavecatalogoiiinome & \hspace{4cm} & 4. \palavraschavecatalogoivnome \hspace{2cm} \\
-		I. ENE/FT/UnB           &  \hspace{4cm}    &   II. T\'{i}tulo (s\'{e}rie)\hspace{2cm}
+		I. \departamentosigla/FT/UnB           &  \hspace{4cm}    &   II. T\'{i}tulo (s\'{e}rie)\hspace{2cm}
 		\end{tabular}
 		}}\\
 
 		\vspace{5mm}
 		\textbf{REFER\^{E}NCIA BIBLIOGR\'{A}FICA}\\
 		%\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, Tese de doutorado em Engenharia El\'{e}trica, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome.
-		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, \tipodemonografianome, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome.
+		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, \tipodemonografianome, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome p.
 		\\
 		\vspace{5mm}
 		\textbf{CESS\~{A}O DE DIREITOS}\\
@@ -526,7 +528,7 @@
 			}
 		}
 		\vspace{10pt}	
-		Departamento de Eng. El\'{e}trica (ENE) - FT\\
+		Departamento de \departamento~(\departamentosigla) - FT\\
 		Universidade de Bras\'{i}lia (UnB)\\
 		Campus Darcy Ribeiro\\
 		CEP 70919-970 - Bras\'{i}lia - DF - Brasil 	
