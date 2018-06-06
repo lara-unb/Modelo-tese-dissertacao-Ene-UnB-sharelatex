@@ -660,20 +660,22 @@
   	%\raggedleft\setfonttimes\textit{\autorinome}\\
 	\end{tabular}
 
-	\begin{tabular}{p{0.9\textwidth}}
-		\setfonttimes\textit{\agradecimentosautorcontnome}\\
-	  \\
-  	%\raggedleft\setfonttimes\textit{\autorinome}\\
-	\end{tabular}
-	\vspace*{1cm}
+    \ifthenelse{\equal{\agradecimentosautorcontnome}{}}{}{
+	    \begin{tabular}{p{0.9\textwidth}}
+	    	\setfonttimes\textit{\agradecimentosautorcontnome}\\
+	    \\
+  	    %\raggedleft\setfonttimes\textit{\autorinome}\\
+	    \end{tabular}
+	    \vspace*{1cm}
+	}
 	\ifthenelse{\equal{\autoriinome}{}}{}{
 	 	\begin{tabular}{p{0.9\textwidth}}
 	 		\setfonttimes\textit{\agradecimentosautoriinome}\\
 	   	\\
 	%   	\raggedleft\setfonttimes\textit{\autoriinome}\\
 	 	\end{tabular}
+	    \vspace*{1cm}
 	}
-	\vspace*{1cm}
 	\ifthenelse{\equal{\autoriiinome}{}}{}{
 	 	\begin{tabular}{p{0.9\textwidth}}
 	 		\setfonttimes\textit{\agradecimentosautoriiinome}\\
