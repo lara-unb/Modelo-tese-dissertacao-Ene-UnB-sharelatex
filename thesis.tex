@@ -16,11 +16,15 @@
 \usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage[authoryear]{natbib}
+%\usepackage[authoryear]{natbib}
+\usepackage[num]{abntex2cite}
 \usepackage{xargs}[2008/03/08]
 \usepackage{import}
 
 \makeatletter
+
+% relative to abntex2. cite mode
+\citebrackets[]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 \providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
@@ -412,7 +416,7 @@ colframe=\corteoremafundo]
 %BIBLIOGRAPHY
 \addcontentsline{toc}{chapter}{BIBLIOGRAPHY} 
 
-\bibliographystyle{chicago}
+%\bibliographystyle{chicago}
 \bibliography{bibliography}
 
 \end{document}
