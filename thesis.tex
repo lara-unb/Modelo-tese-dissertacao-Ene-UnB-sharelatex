@@ -16,15 +16,10 @@
 \usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amsthm}
-%\usepackage[authoryear]{natbib}
-\usepackage[num]{abntex2cite}
 \usepackage{xargs}[2008/03/08]
 \usepackage{import}
 
 \makeatletter
-
-% relative to abntex2. cite mode
-\citebrackets[]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 \providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
@@ -326,6 +321,15 @@ colframe=\corteoremafundo]
   \providecommand{\examplename}{Example}
   \providecommand{\lemmaname}{Lemma}
 \providecommand{\theoremname}{Theorem}
+
+
+% Do not change the sequence of this package import.
+% hyperref must be on of the last to be imported and abntex must be after it.
+% DON`t CHANGE THIS
+\usepackage[hidelinks]{hyperref}
+\usepackage[num]{abntex2cite}
+% relative to abntex2. cite mode
+\citebrackets[]
 
 \begin{document}
 
