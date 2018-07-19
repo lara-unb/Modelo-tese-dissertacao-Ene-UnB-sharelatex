@@ -73,15 +73,16 @@
 %%###################%%###################
 
 % COMANDOS: GRAU
-\newcommand{\grau}[5]{%
+\newcommand{\grau}[6]{%
     \def\graunome{#1}%
     \def\graunomeshort{#4}%
     \def\tipodemonografianome{#2}
     \def\departamento{#3}
     \def\departamentosigla{#5}
+    \def\programadoaluno{#6}
 }%
 \providecommand\graunomeshort{Engenheiro}\providecommand\graunome{Engenheiro Mecatrônico}
-\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}
+\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}\providecommand\programadoaluno{Engenharia El\'{e}trica}
 
 
 % COMANDOS: AUTORES
@@ -278,7 +279,7 @@
 	\end{tabular}\\}
 % \vspace*{9pt}
 \vspace*{8mm}
-{\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\departamento}}\\
+{\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\programadoaluno}}\\
 \vspace*{2pt}
 {\large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 \placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
@@ -331,7 +332,7 @@
 
 \placetextbox{0.5}{0.26}{%
 	\begin{tabular}{>{\centering}p{\sizeengtable\columnwidth}}
-		\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\departamento}}
+		\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\programadoaluno}}
 	\end{tabular}%
 }
 
@@ -390,7 +391,7 @@
 {	
 	{\small	\bf			
 		\ifthenelse{\equal{\membrodabancainome}{}}{}{\small --------------------------------------------------------------------------\\ \membrodabancainome  \\}
-		\ifthenelse{\equal{\membrodabancainome}{}}{}{\small(\membrodabancaifuncaonome) \\ } 
+		\ifthenelse{\equal{\membrodabancainome}{}}{}{\small\membrodabancaifuncaonome \\ } 
 		
  		\ifthenelse{\equal{\membrodabancaiinome}{}}{}{\small \vspace{5mm}
  		--------------------------------------------------------------------------\\ \membrodabancaiinome \\} 
@@ -441,7 +442,7 @@
 		\MakeUppercase{\autorcatalogonome}\\
 		\titulocatalogonome\ \newline
 		[Distrito Federal] \anonome.\\
-		\numeropaginascatalogoinicio, \numeropaginascatalogonome p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \departamento, \anonome).\\
+		\numeropaginascatalogoinicio, \numeropaginascatalogonome p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \programadoaluno, \anonome).\\
 		\tipodemonografianome~-- Universidade de Bras\'{i}lia, Faculdade de Tecnologia.\\
 		Departamento de \departamento\\
 		\begin{tabular}{lll}

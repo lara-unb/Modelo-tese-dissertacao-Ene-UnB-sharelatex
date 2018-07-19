@@ -321,6 +321,12 @@ colframe=\corteoremafundo]
   \providecommand{\examplename}{Example}
   \providecommand{\lemmaname}{Lemma}
 \providecommand{\theoremname}{Theorem}
+  \addto{\captionsenglish}{%
+    \renewcommand{\bibname}{References}
+  }
+  \addto\captionsportuguese{%
+    \renewcommand{\bibname}{Refer\^{e}ncias}
+  }
 
 
 % Do not change the sequence of this package import.
@@ -344,8 +350,8 @@ colframe=\corteoremafundo]
 \autores{Margaret Hamilton}
 \autores{Minch Yoda}
 
-%% {Grau desejado em detalhes}{Tipo de monografia}{Departamento}{Grau desejado}{Sigla do departamento}
-\grau{Doutor Engenheiro em Sistemas Eletrônicos e Automação}{Tese de doutorado}{Engenharia El\'{e}trica}{Doutor}{ENE}
+%% {Grau desejado em detalhes}{Tipo de monografia}{Departamento}{Grau desejado}{Sigla do departamento}{Programa do aluno ou departamento novamente]}
+\grau{Doutor Engenheiro em Sistemas Eletrônicos e Automação}{Tese de doutorado}{Engenharia El\'{e}trica}{Doutor}{ENE}{Engenharia de Sistema Eletrônicos e Automação}
 
 \datainfo{Janeiro}{01}{2017}
 
@@ -411,16 +417,14 @@ colframe=\corteoremafundo]
 
 \import{parts/}{capt_02}
 
-\part*{APPENDIX}
-
-
-\appendix
-\import{parts/}{appendix1}
-
 %BIBLIOGRAPHY
-\addcontentsline{toc}{chapter}{BIBLIOGRAPHY} 
+\addcontentsline{toc}{chapter}{REFERENCES} 
 
 %\bibliographystyle{chicago}
 \bibliography{bibliography}
+
+\part*{APPENDIX}
+\appendix
+\import{parts/}{appendix1}
 
 \end{document}
