@@ -1,0 +1,27 @@
+\usepackage{babel}
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\examplename}{Example}
+  \providecommand{\lemmaname}{Lemma}
+\providecommand{\theoremname}{Theorem}
+  \addto{\captionsenglish}{%
+    \renewcommand{\bibname}{References}
+    \renewcommand{\contentsname}{SUMMARY}
+    \renewcommand{\listfigurename}{LIST OF FIGURES}
+    \renewcommand{\listtablename}{LIST OF TABLES}
+    \renewcommand{\bibname}{BIBLIOGRAPHY}
+  }
+  \addto\captionsportuguese{%
+    \renewcommand{\bibname}{REFER\^{E}NCIAS BIBLIOGR\'{A}FICAS}
+    \renewcommand{\contentsname}{SUM\'{A}RIO}
+    \renewcommand{\listfigurename}{LISTA DE FIGURAS}
+    \renewcommand{\listtablename}{LISTA DE TABELAS}
+  }
+
+
+% Do not change the sequence of this package import.
+% hyperref must be on of the last to be imported and abntex must be after it.
+% DON`t CHANGE THIS
+\usepackage[hidelinks]{hyperref}
+\usepackage[num]{abntex2cite}
+% relative to abntex2. cite mode
+\citebrackets[]

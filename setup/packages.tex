@@ -1,0 +1,120 @@
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{xargs}[2008/03/08]
+\usepackage{import}
+\usepackage{siunitx}
+%\usepackage[justification=centering]{caption} % Center all captions...
+
+% Used for Code  blocks, comment if not used...
+\usepackage{listings}
+\lstdefinestyle{global}{%
+	basicstyle=\ttfamily\scriptsize\color{black!90},%
+	stringstyle=\itshape\color{magenta},%
+	showstringspaces=false,%
+	keywordstyle={[1]\bfseries\color{keycolor}},%
+	keywordstyle={[2]\bfseries\color{mbleu}},%
+	commentstyle=\color{blue}\slshape,%
+	framexleftmargin=1mm,%
+	backgroundcolor=\color{black!2},%
+	numbers=left,%
+	stepnumber=1,%
+	numberstyle=\color{Gray},
+}
+
+\lstdefinestyle{makefile}{%
+	otherkeywords={.SUFFIXES},
+	alsoletter={:},
+	morekeywords=[1]{SUFFIX, CPP_},
+	morekeywords=[2]{vasp:,makeparam:,zgemmtest:,dgemmtest:,ffttest:,kpoints:,clean:},
+	style=global,%
+	morecomment=[l][commentstyle]{\#},%
+	emphstyle={\color{vimvert}},%
+	moredelim=[s][\color{vimvert}]{\$(}{)}%
+}
+
+\lstdefinestyle{C}{%
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	style=global,%
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+}
+
+% acronyms
+\usepackage[acronym]{glossaries}
+
+
+\makeatletter
+\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+    
+ 	\usepackage{ft4unb}
+  \theoremstyle{plain}
+  \ifx\thechapter\undefined
+    \newtheorem{thm}{\protect\theoremname}
+  \else
+    \newtheorem{thm}{\protect\theoremname}[chapter]
+  \fi
+  \theoremstyle{definition}
+  \ifx\thechapter\undefined
+    \newtheorem{example}{\protect\examplename}
+  \else
+    \newtheorem{example}{\protect\examplename}[chapter]
+  \fi
+  \theoremstyle{definition}
+  \ifx\thechapter\undefined
+    \newtheorem{defn}{\protect\definitionname}
+  \else
+    \newtheorem{defn}{\protect\definitionname}[chapter]
+  \fi
+  \theoremstyle{plain}
+  \ifx\thechapter\undefined
+    \newtheorem{lem}{\protect\lemmaname}
+  \else
+    \newtheorem{lem}{\protect\lemmaname}[chapter]
+  \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%%% PACOTES: FONTE  (VERIFICAR SE ESTÃO INSTALADOS)
+\usepackage[T1]{fontenc}
+
+
+%%% PACOTES: GRAFICOS, TABELAS ETC
+\usepackage{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{./figs/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg,.bmp}
+\usepackage{multicol}
+\usepackage{subfig}
+\usepackage{array}
+
+%%% PACOTES: ALGORITMOS
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%%% PACOTES: OUTROS
+\usepackage{pdfpages}
+
+
+%%% PACOTES NECESSÁRIOS PELO TEMPLATE (JÁ INSTALADOS):
+%%% color, [usenames,dvipsnames,svgnames,table]{xcolor}
+%%% {eso-pic,graphicx}, mdframed, tcolorbox
+%%% times, geometry, import, ifthen, calc,{xstring,xifthen}
