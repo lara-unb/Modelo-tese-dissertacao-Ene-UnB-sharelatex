@@ -929,11 +929,6 @@
 \renewcommand*\l@subsection{\@dottedtocline{2}{3.5em}{2.6em}}
 \renewcommand*\l@subsubsection{\@dottedtocline{3}{5.5em}{3.2em}}
 
-\renewcommand{\contentsname}{SUMMARY}
-\renewcommand{\listfigurename}{LIST OF FIGURES}
-\renewcommand{\listtablename}{LIST OF TABLES}
-\renewcommand{\bibname}{BIBLIOGRAPHY}
-
 %%% Sumário:
 \newcommand{\sumario}
 {   \pagenumbering{roman}
@@ -955,8 +950,15 @@
 %%% Lista de acronimos:
 \newcommand{\listadeacronimos}
 {
-	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=\acronymtype,title={LISTA DE ACRÔNIMOS}]}
+	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=\acronymtype]}
 }
+
+%%% Lista de simbolos:
+\newcommand{\listadesimbolos}
+{
+	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary}
+}
+
 
 \makeatother
  

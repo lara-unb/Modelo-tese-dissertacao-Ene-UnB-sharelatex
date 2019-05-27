@@ -9,21 +9,25 @@
 %%          Miguel Eduardo Gutierrez Paredes
 %% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
 
+%\documentclass[11pt,oneside,portuguese]{book}
 \documentclass[11pt,oneside,english]{book}
 \input{setup/packages}
 \input{setup/other}
 \input{setup/theorem_lemma}
 \input{setup/languages}
 
+% To use this acro list, you have to us them in the text as they are listed in the acro_list.tex.
+\input{parts/acro_list}
+
 \makeatother
 \begin{document}
 
 \input{setup/title_author_etc}
-\input{parts/dedicated_to.tex}
+\input{parts/dedicated_to}
 
 \runfrontend{}
 
-\import{}{macros.tex}
+\import{}{macros}
 \import{parts/}{abstract}
 
 \sumario
@@ -34,16 +38,15 @@
 
 \listadeacronimos
 
+% Também é possível expandir o formato dos acrônimos para uma lista de símbolos. Para isso, procure como usar o pacote glossary e ative o comando abaixo.
+%\listadesimbolos
+
 \markboth{}{}
 
-% To use this acro list, you have to us them in the text as they are listed in the acro_list.tex.
-% Example for:
-% \newacronym{UTI}{UTI2}{Unidade de Tratamento Intensivo}
-% In the text...
-% \acrshort{UTI} or \acrlong{UTI2}
-\input{parts/acro_list}
-
+% Caso nãos use o glossary para símbolos, voĉe pode utilizar o arquivos "symbols.tex" da forma mais simples.
 \import{parts/}{symbols}
+
+% A mesma troca do glossary, pode ser feita para notation. Atualize o nome no arquivo "languages.tex".
 \import{parts/}{notation}
 
 %CORPO PRINCIPAL
