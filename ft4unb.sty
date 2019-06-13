@@ -947,18 +947,23 @@
 	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\listoftables}	
 }
 
+%%% Lista de simbolos:
+\newcommand{\listadesimbolos}
+{
+	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=symbolslist,style=symbolsstyle]}
+}
+
 %%% Lista de acronimos:
 \newcommand{\listadeacronimos}
 {
 	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=\acronymtype]}
 }
 
-%%% Lista de simbolos:
-\newcommand{\listadesimbolos}
+%%% Lista de notacoes:
+\newcommand{\listadenotacoes}
 {
-	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary}
+	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=notation]}
 }
-
 
 \makeatother
  

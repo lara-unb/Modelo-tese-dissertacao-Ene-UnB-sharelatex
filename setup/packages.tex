@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage[section]{placeins}
 \usepackage{url}
+\usepackage{breakurl}
 %\usepackage[justification=centering]{caption} % Center all captions...
 
 % Used for Code  blocks, comment if not used...
@@ -19,8 +20,13 @@
 % Do not change the sequence of this package import.
 \usepackage[hidelinks]{hyperref}
 
-% acronyms
-\usepackage[acronym,nonumberlist]{glossaries}
+% Symbols, acronyms, and notation
+% Remove the nonumberlist to insert the pag in which they apear
+\usepackage[acronym,nonumberlist,automake,style=tree]{glossaries}
+    \providecommand{\notationname}{NOTATION}
+    \providecommand{\symbolsabrevname}{LIST OF SYMBOLS AND ABBREVIATIONS}
+    \newglossary[slg]{symbolslist}{syi}{syg}{\symbolsabrevname}
+    \newglossary[nlg]{notation}{not}{ntn}{\notationname}
 
 \makeatletter
 \makeglossaries
@@ -88,7 +94,8 @@
 %%% times, geometry, import, ifthen, calc,{xstring,xifthen}
 
 
-% Do not change the sequence of this package import.
+% Do not change the sequence of this package import. 
+% Also, try NOT TO USE THIS PACKAGE. Just comment and define one of the %\bibliographystyle{}
 \usepackage[num]{abntex2cite}
-% relative to abntex2. cite mode
+% relative to abntex2cite cite mode
 \citebrackets[]

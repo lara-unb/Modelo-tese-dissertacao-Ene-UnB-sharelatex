@@ -2,13 +2,15 @@
 \chapter{Capítulo}
 
 \section{Introduction}
-
+\glsaddall
 Examples of acronyms are:
 First time use of \gls{uti}. Then I can use it again as \gls{uti}, or its plural as \glspl{uti}. \Glspl{maths}, for the begging a phrase, or plural like \glspl{maths}.
 
-If I need only the acronym, then use \acrshort{scuba}. However, is I need only the full name, the use \acrlong{radar}.
+If I need only the acronym, then use \acrshort{scuba}. However, is I need only the full name, the use \acrlong{radar}. Finally, we can use notation like \gls{not:vet}.
 
-\global\long\def\teste{\int_{x}\frac{1}{2}\sum x_{2}dt}
+For symbols, you can use the following idea
+\global\long\def\teste{E=\int_{x}\frac{\pi}{2}\sum x_{2}dt},
+where \glssymbol{symb:E} is the \gls{symb:E}.
 
 Mauris viverra orci sit amet \cite{article:dummy} mi varius at porta
 felis volutpat. Aenean pharetra ultricies justo quis ultricies. Etiam

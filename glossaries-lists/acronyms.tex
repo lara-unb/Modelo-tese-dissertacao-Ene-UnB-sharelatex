@@ -5,7 +5,14 @@
 %     description={Is a mark up language specially suited 
 %     for scientific documents}
 % }
- 
+%
+% To include acronyms into the list of symbols, do as follow:
+% * add [parent=acronymslists] after every "\newacronym";
+% * Comment the line "\listadeacronimos" in file "thesis.tex";
+% * Remove the comment the following line:
+%\newglossaryentry{acronymslists}{name={Acronyms list},description={\glspar},sort=c}
+
+
 \newglossaryentry{maths}
 {
     name=mathematic,

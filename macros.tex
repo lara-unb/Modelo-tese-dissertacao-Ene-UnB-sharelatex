@@ -1,3 +1,44 @@
+% Figure commands
+\newcommand{\figOneCenter}[4]{
+	\begin{figure}[]
+		\centering %
+		\scriptsize %
+		\includegraphics[#1]{#2}
+		\caption{#3}
+		#4
+	\end{figure}
+}
+
+\newcommand{\figMultCenter}[2]{
+	\begin{figure}[]
+		\centering %
+		\scriptsize %
+		#1
+		#2
+	\end{figure}
+}
+
+\newcommand{\figOneCenterHere}[4]{
+	\begin{figure}[H]
+		\centering %
+		\scriptsize %
+		\includegraphics[#1]{#2}
+		\caption{#3}
+		#4
+	\end{figure}
+}
+
+\newcommand{\figMultCenterHere}[2]{
+	\begin{figure}[H]
+		\centering %
+		\scriptsize %
+		#1
+		#2
+	\end{figure}
+}
+
+% End of figures
+
 \global\long\def\mymatrix#1{\boldsymbol{#1}}
 
 \global\long\def\myvec#1{\boldsymbol{#1}}
@@ -182,126 +223,5 @@ Podemos usar também $\mathcal{S}_{3}\rtimes\mathbb{R}^{3}$
 \end{comment}
 \begin{comment}
 The set of unit dual quaternions
-\end{comment}
-
-\newcommandx\projspace[2][usedefault, addprefix=\global, 1=n]{\mathbb{P}^{#1}\left(#2\right)}
-\begin{comment}
-Projective space over the field \#1
-\end{comment}
-
-\newcommandx\GL[2][usedefault, addprefix=\global, 1=\realset]{\ensuremath{GL\left(#2,#1\right)}}
-\begin{comment}
-The \#1 dimensional general linear group over the field \#2
-\end{comment}
-
-\newcommandx\SL[2][usedefault, addprefix=\global, 1=\realset]{\ensuremath{SL\left(#2,#1\right)}}
-\begin{comment}
-The \#1 dimensional special linear group over the field \#2
-\end{comment}
-
-\global\long\def\SE#1{\ensuremath{SE\left(#1\right)}}
-\begin{comment}
-The \#1 dimensional special Euclidean group
-\end{comment}
-
-\global\long\def\SO#1{\ensuremath{SO\left(#1\right)}}
-\begin{comment}
-The \#1 dimensional special orthogonal group
-\end{comment}
-
-\global\long\def\SU#1{\ensuremath{SU\left(#1\right)}}
-\begin{comment}
-The \#1 dimensional special unitary group
-\end{comment}
-
-\global\long\def\unitquatgroup{\ensuremath{\text{Spin}(3)}}
- %
-\begin{comment}
-The algebra of quaternions
-\end{comment}
-
-\global\long\def\unitdualquatgroup{\text{Spin}(3)\ltimes\mathbb{R}^{3}}
-\begin{comment}
-The set of unit dual quaternions
-\end{comment}
-
-\newcommandx\liealgebraGL[2][usedefault, addprefix=\global, 1=\realset]{\ensuremath{\mathfrak{gl}\left(#2,#1\right)}}
-\begin{comment}
-The Lie algebra associated to the \#1 dimensional general linear group
-over the field \#2
-\end{comment}
-
-\newcommandx\liealgebraSL[2][usedefault, addprefix=\global, 1=\realset]{\ensuremath{\mathfrak{sl}\left(#2,#1\right)}}
-\begin{comment}
-The Lie algebra associated to the \#1 dimensional special linear group
-over the field \#2
-\end{comment}
-
-\global\long\def\liealgebraSE#1{\ensuremath{\mathfrak{se}\left(#1\right)}}
-\begin{comment}
-The Lie algebra associated to the \#1 dimensional special Euclidean
-group
-\end{comment}
-
-\global\long\def\liealgebraSO#1{\ensuremath{\mathfrak{so}\left(#1\right)}}
-\begin{comment}
-The Lie algebra associated to the \#1 dimensional special orthogonal
-group
-\end{comment}
-
-\global\long\def\liealgebraSU#1{\ensuremath{\mathfrak{su}\left(#1\right)}}
-\begin{comment}
-The Lie algebra associated to the \#1 dimensional special unitary
-group
-\end{comment}
-
-\global\long\def\isomorphism#1#2#3{\ensuremath{#1\overset{#2}{\leftrightarrow}#3}}
-
-\global\long\def\monomorphism#1#2#3{\ensuremath{#1\overset{#2}{\rightarrowtail}#3}}
-
-\global\long\def\epimorphism#1#2#3{\ensuremath{#1\overset{#2}{\twoheadrightarrow}#3}}
-
-\global\long\def\embedding#1#2{\ensuremath{#1\hookrightarrow#2}}
-
-\global\long\def\subgroup#1#2{\ensuremath{#1\le#2}}
-
-\global\long\def\isogroups#1#2{\ensuremath{#1\simeq#2}}
-
-\global\long\def\normalsubgroup#1#2{\ensuremath{#1\triangleleft#2}}
-
-\global\long\def\quotientgroup#1#2{\ensuremath{#1/#2}}
-
-\global\long\def\pointcoordinate#1#2{\ensuremath{#1_{#2}}}
-\begin{comment}
-Coordinate of point \#1 relative to frame \#2 \textendash{} Note that
-Adorno uses the alternative notation \#1\textasciicircum{}\#2
-\end{comment}
-
-\global\long\def\frametransform#1#2#3{\ensuremath{#1_{#2#3}}}
-\begin{comment}
-Transform \#1 which changes coordinates relative to \#2 (frame \#2)
-to coordinates relative to \#3 (frame \#3) \textendash{} Note that
-Adorno uses \#1\textasciicircum{}\{\#2\}\_\{\#3\}
-\end{comment}
-
-\global\long\def\homogeneous#1{\bar{#1}}
-
-\global\long\def\axisangle#1#2{\ensuremath{R\left(\myvec{#1},#2\right)}}
-\begin{comment}
-Axis-angle representation with axis \#1 and angle \#2
-\end{comment}
-
-\global\long\def\quatbilin#1#2{\left[\left[#1,#2\right]\right]}
-\begin{comment}
-Altmann's notation to quaternion with real part \#1 and vector part
-\#2
-\end{comment}
-
-\begin{comment}
-\global\long\def\quatbilin#1#2{\ensuremath{\left\llbracket #1,#2\right\rrbracket }}
-\end{comment}
-\begin{comment}
-Prettier notation, but need to add \textbackslash{}usepackage\{stmaryd\}
-for every subdocument preamble
 \end{comment}
 
