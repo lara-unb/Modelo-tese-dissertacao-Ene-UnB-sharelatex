@@ -3,7 +3,6 @@
 \setcounter{tocdepth}{3}
 \usepackage{array}
 \usepackage{verbatim}
-\usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{xargs}[2008/03/08]
 \usepackage{import}
@@ -11,7 +10,6 @@
 \usepackage{multirow}
 \usepackage[section]{placeins}
 \usepackage{url}
-\usepackage{breakurl}
 %\usepackage[justification=centering]{caption} % Center all captions...
 
 % Used for Code  blocks, comment if not used...
@@ -22,10 +20,15 @@
 
 % Symbols, acronyms, and notation
 % Remove the nonumberlist to insert the pag in which they apear
-\usepackage[acronym,nonumberlist,automake,style=tree]{glossaries}
-    \providecommand{\notationname}{NOTATION}
-    \providecommand{\symbolsabrevname}{LIST OF SYMBOLS AND ABBREVIATIONS}
+\usepackage[acronym,automake,style=tree]{glossaries}
+    \renewcommand{\glsnamefont}[1]{\textbf{#1}}
+    \setlength\LTleft{0pt}
+    \setlength\LTright{0pt}
+    \setlength\glsdescwidth{0.8\hsize}
+    \providecommand{\notationname}{NOTATION - don't change the name here!}
+    \providecommand{\symbolsabrevname}{SYMBOLS AND ABBR. - don't change the name here!}
     \newglossary[slg]{symbolslist}{syi}{syg}{\symbolsabrevname}
+        \glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
     \newglossary[nlg]{notation}{not}{ntn}{\notationname}
 
 \makeatletter

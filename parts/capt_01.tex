@@ -8,9 +8,16 @@ First time use of \gls{uti}. Then I can use it again as \gls{uti}, or its plural
 
 If I need only the acronym, then use \acrshort{scuba}. However, is I need only the full name, the use \acrlong{radar}. Finally, we can use notation like \gls{not:vet}.
 
-For symbols, you can use the following idea
-\global\long\def\teste{E=\int_{x}\frac{\pi}{2}\sum x_{2}dt},
-where \glssymbol{symb:E} is the \gls{symb:E}.
+For symbols, you can use the following idea as
+\begin{equation}
+    \gls{symb:E}=\frac{\pi}{2}\sum x_{2}d,\label{eq:equatoin1}
+\end{equation}
+where \gls{symb:E} is the \glsdesc{symb:E} given in \glsunit{symb:E}.
+
+Try using the \equationautorefname\,\eqref{eq:equatoin1}. For acronyms, you can change its description as \gls{dl}.
+
+\global\long\def\teste{\int_{x}\frac{1}{2}\sum x_{2}dt}
+
 
 Mauris viverra orci sit amet \cite{article:dummy} mi varius at porta
 felis volutpat. Aenean pharetra ultricies justo quis ultricies. Etiam

@@ -18,7 +18,7 @@
 %%###################   LATEX PACKAGES 
 %%###################
 %%###################%%###################
-
+\usepackage{setspace}
 
 %%% PACOTES: GRAFICOS, TABELAS, CORES
 %%%--------------------------------------------
@@ -751,7 +751,7 @@
 		{\setfonttimes\normalsize{\textbf{Orientador:} \orientadornome}}\\
 		\ifthenelse{\equal{\corientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Coorientador:} \corientadornome}\\}
 
-	{\normalsize\noindent#2}
+	{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
 }
 {
 	\ifthenelse{\equal{#1}{Abstract}}	
@@ -783,7 +783,7 @@
 		% \ifthenelse{\equal{\mesnome}{novembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th November \anonome}}\\}{}
 		% \ifthenelse{\equal{\mesnome}{dezembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th December \anonome}}\\}{}
 % 		\end{flushleft}
-		{\normalsize\noindent#2}
+		{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
 	}
 	{\ifthenelse{\equal{#1}{Résumé}}
 	{
@@ -811,7 +811,7 @@
 		\ifthenelse{\equal{\mesnome}{novembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, novembre \anonome}}\\}{}
 		\ifthenelse{\equal{\mesnome}{dezembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, decembre \anonome}}\\}{}
 		\end{flushleft}
-		{\normalsize\noindent#2}
+		{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
 	}
 	{}}
 }
@@ -956,7 +956,7 @@
 %%% Lista de acronimos:
 \newcommand{\listadeacronimos}
 {
-	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=\acronymtype]}
+	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\printglossary[type=\acronymtype,style=long]}
 }
 
 %%% Lista de notacoes:

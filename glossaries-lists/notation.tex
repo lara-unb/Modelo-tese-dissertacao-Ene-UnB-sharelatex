@@ -2,22 +2,13 @@
 % \newglossaryentry{not:latex}
 % {
 %     type=notation,
-%     name=latex,
+%     name=Latex,
+%     text={latex},% This can be used for different Caps in text
 %     description={Is a mark up language specially suited 
 %     for scientific documents
 %     }
 % }
-
-\newglossaryentry{not:vet}
-{
-	type=notation,
-	name=vet,
-	description={Neste trabalho vetores são representados por letras minúsculas em
-		negrito. Matrizes são representadas por letras maiúsculas em negrito.
-		Já espaços e conjuntos em geral são representados por letras maiúsculas
-		caligráficas.}
-}
-
+%
 % In the text:
 %     use \gls{label}, for an first time extended name
 % In the text , for plural:
@@ -25,6 +16,23 @@
 % In the text , for Caps and/or plural:
 %     \Gls{duck} => Duck
 %     \Glspl{duck} => Ducks
+%
+%
+% To just add a Symbol without using it, do:
+% \glsaddall
+% \glsadd{label}
+
+\newglossaryentry{not:vet}
+{
+	type=notation,
+	name=Vet,
+	text={vet},
+	description={Neste trabalho vetores são representados por letras minúsculas em
+		negrito. Matrizes são representadas por letras maiúsculas em negrito.
+		Já espaços e conjuntos em geral são representados por letras maiúsculas
+		caligráficas.}
+}
+
 
 
 
