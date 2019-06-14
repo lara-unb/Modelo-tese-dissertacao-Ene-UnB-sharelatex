@@ -10,7 +10,7 @@
 %% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
 
 %\documentclass[11pt,oneside,portuguese]{book}
-\documentclass[11pt,oneside,english]{book}
+\documentclass[12pt,oneside,english]{book}
 \input{setup/packages}
 \input{setup/other}
 \input{setup/theorem_lemma}
@@ -20,6 +20,7 @@
 
 \makeatother
 \begin{document}
+\pagenumbering{roman}
 
 \input{setup/title_author_etc}
 \input{parts/dedicated_to}
@@ -50,9 +51,6 @@
 
 \markboth{}{}
 
-% Caso nãos use o glossary para símbolos, voĉe pode utilizar o arquivos "symbols.tex" da forma mais simples.
-% \import{parts/}{symbols}
-
 %CORPO PRINCIPAL
 \mainmatter 
 \setcounter{page}{1} \pagestyle{plain} 
@@ -67,7 +65,7 @@
 % Do not use \bibliographystyle{IEEEtran} with abntex2cite package!!!!!
 % Also, try not to use abntex2cite at all! just comment its package insetup/packages.tex
 %\bibliographystyle{chicago}
-%\bibliographystyle{IEEEtran}
+% \bibliographystyle{IEEEtran}
 %\bibliographystyle{acm}
 \bibliography{bibliography}
 

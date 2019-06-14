@@ -19,6 +19,8 @@
 %%###################
 %%###################%%###################
 \usepackage{setspace}
+\usepackage{pageslts}
+\newcounter{preliminarescounter}
 
 %%% PACOTES: GRAFICOS, TABELAS, CORES
 %%%--------------------------------------------
@@ -191,12 +193,10 @@
 
 
 %Comandos para a parte de ficha catalográfica
-\newcommand{\catalogoinfo}[7]{
+\newcommand{\catalogoinfo}[5]{
 	\def\publicacaonome{#1}%
-	\def\numeropaginascatalogoinicio{#6}\def\numeropaginascatalogonome{#7}%
 	\def\palavraschavecatalogoinome{#2}\def\palavraschavecatalogoiinome{#3}\def\palavraschavecatalogoiiinome{#4}\def\palavraschavecatalogoivnome{#5}	
 }
-\providecommand\numeropaginascatalogonome{}
 \providecommand\palavraschavecatalogoinome{}\providecommand\palavraschavecatalogoiinome{}
 \providecommand\palavraschavecatalogoiiinome{}\providecommand\palavraschavecatalogoivnome{}
 \providecommand\publicacaonome{}
@@ -286,7 +286,6 @@
 \placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
 \end{center}
 \end{titlepage}
-\newpage \thispagestyle{empty} \
 
 
 
@@ -298,6 +297,7 @@
 %%###################%%###################
 % \newcommand{\folhatitulo}{
 \begin{titlepage}
+\stepcounter{preliminarescounter}
 \begin{center}
 
 {\fontsize{11.5}{1.2}\selectfont UNIVERSIDADE DE BRAS\'{I}LIA}\\
@@ -350,7 +350,7 @@
 	\end{tabular}%		
 }	
 
-
+\pagenumbering{roman}
 \end{titlepage}
 % }
 
@@ -369,6 +369,7 @@
 \providecommand\membrodabancavnome{}\providecommand\membrodabancavfuncaonome{}
 % 
 \begin{titlepage}
+\stepcounter{preliminarescounter}
 \begin{center}
 {\setfonttimes\Large\bf UNIVERSIDADE DE BRAS\'{I}LIA}\\
 {\setfonttimes\Large\bf FACULDADE DE TECNOLOGIA}\\
@@ -383,7 +384,7 @@
 \end{center}
 
 \vspace{0.0cm}
-{\setfonttimes\bf\setlength{\parindent}{0pt}\MakeUppercase{\tipodemonografianome} ~SUBMETIDA AO DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA DA FACULDADE DE TECNOLOGIA DA UNIVERSIDADE DE BRAS\'{I}LIA COMO PARTE DOS REQUISITOS NECESS\'{A}RIOS PARA A OBTEN\c{C}\~{A}O DO GRAU DE \MakeUppercase{\graunome}.
+{\setfonttimes\bf\setlength{\parindent}{0pt}\MakeUppercase{\tipodemonografianome}~SUBMETIDA AO DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA DA FACULDADE DE TECNOLOGIA DA UNIVERSIDADE DE BRAS\'{I}LIA COMO PARTE DOS REQUISITOS NECESS\'{A}RIOS PARA A OBTEN\c{C}\~{A}O DO GRAU DE \MakeUppercase{\graunome}.
 }\\
 
 {\setfonttimes\large\bf \flushleft{APROVADA POR:}}\\
@@ -434,7 +435,9 @@
 % {	
 	\def\titulocatalogonome{\titulolinhainome~\titulolinhaiinome}
 	\begin{titlepage}
-	{
+	{%
+	\stepcounter{preliminarescounter}
+	\begin{spacing}{1.2} %% Mude este valor pare melhor caber sua folha!
 		\flushleft{\textbf{FICHA CATALOGR\'{A}FICA}}\\
 		\vspace{3mm}
 		\fbox{
@@ -442,7 +445,7 @@
 		\MakeUppercase{\autorcatalogonome}\\
 		\titulocatalogonome\ \newline
 		[Distrito Federal] \anonome.\\
-		\numeropaginascatalogoinicio, \numeropaginascatalogonome p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \programadoaluno, \anonome).\\
+		\lastpageref{pagesLTS.roman}, \lastpageref{LastPage}p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \programadoaluno, \anonome).\\
 		\tipodemonografianome~-- Universidade de Bras\'{i}lia, Faculdade de Tecnologia.\\
 		Departamento de \departamento\\
 		\begin{tabular}{lll}
@@ -455,7 +458,7 @@
 		\vspace{5mm}
 		\textbf{REFER\^{E}NCIA BIBLIOGR\'{A}FICA}\\
 		%\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, Tese de doutorado em Engenharia El\'{e}trica, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome.
-		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, \tipodemonografianome, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome p.
+		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, \tipodemonografianome, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \lastpageref{LastPage}p.
 		\\
 		\vspace{5mm}
 		\textbf{CESS\~{A}O DE DIREITOS}\\
@@ -540,7 +543,7 @@
 
 
 
-	}
+	\end{spacing}}
 	\end{titlepage}	
 }
 
@@ -563,6 +566,7 @@
 
 \newcommand{\dedicatoria}{
 \begin{titlepage}
+\stepcounter{preliminarescounter}
 \begin{center}
 \vspace*{\fill}
 %\begin{flushright}
@@ -648,7 +652,8 @@
 \dedicatoria
 
 \begin{titlepage}
-\pagenumbering{gobble}
+% \pagenumbering{gobble}
+\stepcounter{preliminarescounter}
 \begin{flushleft}
 %\large\setfonttimes\bf\MakeUppercase{Agradecimentos}
 \large\setfonttimes\bf\MakeUppercase{Acknowledgments}
@@ -741,6 +746,7 @@
 \begin{titlepage}
 \ifthenelse{\equal{#1}{Resumo}}
 {
+    \stepcounter{preliminarescounter}
 	\begin{flushleft}
 		{\setfonttimes\Large\bf\noindent\MakeUppercase{#1}}
 	\end{flushleft}
@@ -751,11 +757,12 @@
 		{\setfonttimes\normalsize{\textbf{Orientador:} \orientadornome}}\\
 		\ifthenelse{\equal{\corientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Coorientador:} \corientadornome}\\}
 
-	{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
+        {\normalsize\noindent#2}
 }
 {
 	\ifthenelse{\equal{#1}{Abstract}}	
 	{
+	    \stepcounter{preliminarescounter}
 		\begin{flushleft}
 			{\setfonttimes\Large\bf\noindent\MakeUppercase{#1}}
 		\end{flushleft}
@@ -783,10 +790,11 @@
 		% \ifthenelse{\equal{\mesnome}{novembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th November \anonome}}\\}{}
 		% \ifthenelse{\equal{\mesnome}{dezembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th December \anonome}}\\}{}
 % 		\end{flushleft}
-		{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
+        {\normalsize\noindent#2}
 	}
 	{\ifthenelse{\equal{#1}{Résumé}}
 	{
+	    \stepcounter{preliminarescounter}
 		\begin{flushleft}
 			{\setfonttimes\large\bf\noindent\MakeUppercase{#1}}\\
 		\end{flushleft}
@@ -811,7 +819,7 @@
 		\ifthenelse{\equal{\mesnome}{novembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, novembre \anonome}}\\}{}
 		\ifthenelse{\equal{\mesnome}{dezembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, decembre \anonome}}\\}{}
 		\end{flushleft}
-		{\normalsize\noindent\begin{spacing}{1.5}#2\end{spacing}}
+        {\normalsize\noindent#2}
 	}
 	{}}
 }
@@ -931,7 +939,9 @@
 
 %%% Sumário:
 \newcommand{\sumario}
-{   \pagenumbering{roman}
+{   
+    \stepcounter{preliminarescounter}
+    \setcounter{page}{\value{preliminarescounter}}
 	{\renewcommand{\@dotsep}{0.5}\parskip=0pt\setfonttimes\mdseries\scshape\tableofcontents}
 }
 
@@ -977,8 +987,13 @@
 \geometry{headsep=.2in,footskip=1cm,top=2.5cm,textwidth=15.50cm,bottom=2.5cm}   
 \setlength{\evensidemargin}{-0.2cm}
 \setlength{\oddsidemargin}{0.8cm}
-\renewcommand{\baselinestretch}{1.2}
-%testar depois desse jeito
+%  O seguinte codigo traduz o 1.5 pontos do Word para latex!
+% \renewcommand{\baselinestretch}{1.25} %for a font size = 10pt
+% \renewcommand{\baselinestretch}{1.213} %for a font size = 11pt
+% \renewcommand{\baselinestretch}{1.241} %for a font size = 12pt
+\onehalfspacing % Use this instead
+
+
 %\geometry{verbose,a4paper,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=2cm,headsep=5mm,footskip=0cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macros
