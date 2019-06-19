@@ -281,11 +281,10 @@
 	\end{tabular}\\}
 % \vspace*{9pt}
 \vspace*{\spaceAfterAuthors}
-
-\vspace*{\spaceBeforeLocation}
 \ifdefined\useDate
 \ifnum \useDate=1
-\fontsize{11.5}{1.2}\selectfont Bras\'{i}lia, \mesnome\space de\space\anonome
+\vspace*{\spaceBeforeLocation}
+\fontsize{11.5}{1.2}\selectfont \textbf{Bras\'{i}lia, \mesnome\space de\space\anonome}
 \fi
 \fi
 %
@@ -330,9 +329,15 @@
 % \vspace*{9pt}
 \vspace*{\spaceAfterAuthors}
 {\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\programadoaluno}}\\
-\vspace*{\spaceBeforeLocation}
+\vspace*{2pt}
 {\large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 %
+\ifdefined\useDate
+\ifnum \useDate=1
+\vspace*{\spaceBeforeLocation}
+\fontsize{11.5}{1.2}\selectfont \textbf{Bras\'{i}lia, \mesnome\space de\space\anonome}
+\fi
+\fi
 \ifdefined\useFtUnB
 \ifnum \useFtUnB=1
 \placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
