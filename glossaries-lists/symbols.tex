@@ -31,6 +31,9 @@
 %******** Groups ***********
 \newglossaryentry{greekletters}{name={Greek symbols},unit={},description={\nopostdesc\newline},sort=a}
 \newglossaryentry{latinletters}{name={Latin symbols},unit={},description={\nopostdesc\newline},sort=b}
+\newglossaryentry{nodim}{name={Dimensionless symbols},unit={},description={\nopostdesc\newline},sort=c}
+\newglossaryentry{subs}{name={Subscript symbols},unit={},description={\nopostdesc\newline},sort=d}
+\newglossaryentry{supers}{name={Superscript symbols},unit={},description={\nopostdesc\newline},sort=e}
 
 %******** Latins ***********
 \newglossaryentry{symb:E}
@@ -63,7 +66,33 @@
 	description={ratio of circumference of circle to its diameter}
 }
 
+%******** No dimensions ***********
+\newglossaryentry{symb:dummy}
+{
+	type=symbolslist,
+	parent=nodim,
+	name={Dummy},
+	unit={},
+	description={a dummy counter}
+}
+
+%******** sub entries ***********
+\newglossaryentry{symb:idle}
+{
+	type=symbolslist,
+	parent=subs,
+	name={\ensuremath{Idle}},
+	unit={},
+	description={the idle state of an energy}
+}
 
 
-
- 
+%******** super entries ***********
+\newglossaryentry{symb:point}
+{
+	type=symbolslist,
+	parent=supers,
+	name={\ensuremath{\dot{y}}},
+	unit={},
+	description={the first derivative for a function $y=f(x)$}
+}

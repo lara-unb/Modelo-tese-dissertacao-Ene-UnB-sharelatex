@@ -35,7 +35,7 @@
     \renewcommand{\subglossentry}[3]{%  Change the displayed items
         \glstarget{##2}{\glossentryname{##2}} %
         & \Glossentrydesc{##2}% Description
-        & \glsentryunit{##2}  \tabularnewline
+        & \ifthenelse{\equal{\glsentryunit{##2}}{}}{}{[\glsentryunit{##2}]}  \tabularnewline
     }
 }
 

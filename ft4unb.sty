@@ -251,11 +251,61 @@
 %%###################
 %%###################%%###################
 \newcommand{\capaprincipal}
-{
+{%
+\ifthenelse{\modeloCapa=2}{%
 \begin{titlepage}
-\AddToShipoutPicture*{\BackgroundPicture{figs/capa_fundo_ft3}{21.6cm}}
+\AddToShipoutPicture*{\BackgroundPicture{\capaFile}{21.6cm}}
 \begin{center}
-\vspace*{9.5cm}
+\vspace*{\spaceBeforeTitle}
+{\large\bf \MakeUppercase{\tipodemonografianome}}\\
+\vspace*{1cm}
+\StrLen{\titulo}[\titulosize]
+\ifthenelse{\titulosize > \titlesizeSMALL}{%
+	\ifthenelse{\titulosize > \titlesizeREGULAR}{%
+			\ifthenelse{\titulosize > \titlesizeLARGE}{\vspace*{-40pt}}{\vspace*{-20pt}}%
+	}{}%
+}{}%
+{\noindent\setfonttimes\Large\bf {\MakeUppercase{\titulolinhainome}}}\\
+{\noindent\setfonttimes\Large\bf \ifthenelse{\equal{\titulolinhaiinome}{}}{\vspace*{7pt}}{\MakeUppercase{\titulolinhaiinome}}}\\
+\vspace*{\spaceAfterTitle}
+\begin{tabular}{c}
+{\setfonttimes\large\bf\MakeUppercase{\autorinome}\vspace*{\spaceBetweenAuthors}}
+\end{tabular}\\
+\ifthenelse{\equal{\autoriinome}{}}{\vspace*{6mm}}{
+	\begin{tabular}{c}
+	{\setfonttimes\large\bf\MakeUppercase{\autoriinome}\vspace*{\spaceBetweenAuthors}}
+	\end{tabular}\\}
+\ifthenelse{\equal{\autoriiinome}{}}{\vspace*{6mm}}{
+	\begin{tabular}{c}
+	{\setfonttimes\large\bf\MakeUppercase{\autoriiinome}\vspace*{3mm}}
+	\end{tabular}\\}
+% \vspace*{9pt}
+\vspace*{\spaceAfterAuthors}
+
+\vspace*{\spaceBeforeLocation}
+\ifdefined\useDate
+\ifnum \useDate=1
+\fontsize{11.5}{1.2}\selectfont Bras\'{i}lia, \mesnome\space de\space\anonome
+\fi
+\fi
+%
+\ifdefined\useFtUnB
+\ifnum \useFtUnB=1
+\placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
+\placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
+\fi
+\fi
+\end{center}
+\end{titlepage}%
+}%
+%
+% Caso o modelo de capa seja o 2
+%
+{%
+\begin{titlepage}
+\AddToShipoutPicture*{\BackgroundPicture{\capaFile}{21.6cm}}
+\begin{center}
+\vspace*{\spaceBeforeTitle}
 
 \StrLen{\titulo}[\titulosize]
 \ifthenelse{\titulosize > \titlesizeSMALL}{%
@@ -265,30 +315,33 @@
 }{}%
 {\noindent\setfonttimes\Large\bf {\MakeUppercase{\titulolinhainome}}}\\
 {\noindent\setfonttimes\Large\bf \ifthenelse{\equal{\titulolinhaiinome}{}}{\vspace*{7pt}}{\MakeUppercase{\titulolinhaiinome}}}\\
-\vspace*{1.75cm}
+\vspace*{\spaceAfterTitle}
 \begin{tabular}{c}
-{\setfonttimes\large\bf\MakeUppercase{\autorinome}\vspace*{1.5mm}}
+{\setfonttimes\large\bf\MakeUppercase{\autorinome}\vspace*{\spaceBetweenAuthors}}
 \end{tabular}\\
 \ifthenelse{\equal{\autoriinome}{}}{\vspace*{6mm}}{
 	\begin{tabular}{c}
-	{\setfonttimes\large\bf\MakeUppercase{\autoriinome}\vspace*{1.5mm}}
+	{\setfonttimes\large\bf\MakeUppercase{\autoriinome}\vspace*{\spaceBetweenAuthors}}
 	\end{tabular}\\}
 \ifthenelse{\equal{\autoriiinome}{}}{\vspace*{6mm}}{
 	\begin{tabular}{c}
 	{\setfonttimes\large\bf\MakeUppercase{\autoriiinome}\vspace*{3mm}}
 	\end{tabular}\\}
 % \vspace*{9pt}
-\vspace*{8mm}
+\vspace*{\spaceAfterAuthors}
 {\large\bf \MakeUppercase{\tipodemonografianome} EM \MakeUppercase{\programadoaluno}}\\
-\vspace*{2pt}
+\vspace*{\spaceBeforeLocation}
 {\large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
+%
+\ifdefined\useFtUnB
+\ifnum \useFtUnB=1
 \placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
 \placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
+\fi
+\fi
 \end{center}
-\end{titlepage}
-
-
-
+\end{titlepage}%
+}
 
 %%###################%%###################
 %%################### 
@@ -706,7 +759,7 @@
 %%###################%%###################
 \newcommand{\runfrontend}%
 {
-	\capaprincipal		% FRONT END: [CAPA][BRANCO][FOLHA TITULO][CONTRA-CAPA][FICHA CATAL.]
+    \capaprincipal		% FRONT END: [CAPA][BRANCO][FOLHA TITULO][CONTRA-CAPA][FICHA CATAL.]
 	\agradecimentos	    % Dedicatoria e Agradecimentos
 }
 
