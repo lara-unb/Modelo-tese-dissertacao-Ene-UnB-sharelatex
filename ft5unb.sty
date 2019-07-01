@@ -1,18 +1,25 @@
 %%
-%% This is file `ft4unb.sty'.
+%% This is file `ft5unb.sty'.
 %% 
 %% This file has been created by Prof. Geovany Araujo Borges.
 %% Updates: 
 %% - 2006/03/19: Version 1.0 released.
-%% - 2007/01/08: Package updated in order to support three co-authors. Proposed by Nathalie Pinheiro, André Calmon and Renan Utida)
-%% - 2007/04/09: Package incorporates a page for bibliographic information. Contributions from Nathalie Pinheiro, André Calmon and Renan Utida)
-%% - 2007/08/30: Modified by Alexandre Martins in order to accomplish the standards of FT.
+%% - 2007/01/08: Proposed by Nathalie Pinheiro, André Calmon and Renan Utida.
+%%          Changes: Package updated in order to support three co-authors.
+%% - 2007/04/09: Contributions from Nathalie Pinheiro, André Calmon and Renan Utida.
+%%          Changes: Package incorporates a page for bibliographic information.
+%% - 2007/08/30: Modified by Alexandre Martins.
+%%          Changes: In order to accomplish the standards of FT.
 %% - 2008/08/04: Modified by Bruno Vilhena Adorno.
-%% - 2016/08/10: Modified by Luis F. C. Figueredo: FT4unb
+%% - 2016/08/10: Modified by Luis F. C. Figueredo.
+%%          Changes: FT4unb
+%% - 2019/06/28: Modified by Vinicius G. Guimaraes.
+%%          Changes: FT5unb-v4.2. Organized folders, setup files, and updated standards for FT/UnB.
+%%                   Added multiple cover models for other dissertation types.
 
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{ft4unb}[2007/04/09 v3.0]
+\ProvidesPackage{ft5unb}[2019/06/28 v4.2]
 %%###################%%###################
 %%################### 
 %%###################   LATEX PACKAGES 
@@ -498,7 +505,7 @@
 	\stepcounter{preliminarescounter}
     \thispagestyle{plain}
     \setcounter{page}{\value{preliminarescounter}}
-	\begin{spacing}{1.2} %% Mude este valor pare melhor caber sua folha!
+	\begin{spacing}{\spacingfichacatalografica}%
 		\flushleft{\textbf{FICHA CATALOGR\'{A}FICA}}\\
 		\vspace{3mm}
 		\fbox{
