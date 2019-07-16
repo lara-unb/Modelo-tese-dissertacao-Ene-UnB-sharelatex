@@ -25,6 +25,7 @@
 %%###################   LATEX PACKAGES 
 %%###################
 %%###################%%###################
+\usepackage{ragged2e}
 \usepackage{setspace}
 \usepackage{pageslts}
 \newcounter{preliminarescounter}
@@ -82,16 +83,17 @@
 %%###################%%###################
 
 % COMANDOS: GRAU
-\newcommand{\grau}[6]{%
-    \def\graunome{#1}%
-    \def\graunomeshort{#4}%
+\newcommand{\grau}[7]{%
+    \def\graunomeshort{#1}%
     \def\tipodemonografianome{#2}
     \def\departamento{#3}
-    \def\departamentosigla{#5}
-    \def\programadoaluno{#6}
+    \def\departamentosigla{#4}
+    \def\programadoaluno{#5}
+    \def\faculdadenome{#6}
+    \def\faculdadesigla{#7}
 }%
 \providecommand\graunomeshort{Engenheiro}\providecommand\graunome{Engenheiro Mecatrônico}
-\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}\providecommand\programadoaluno{Engenharia El\'{e}trica}
+\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}\providecommand\programadoaluno{Engenharia El\'{e}trica}\providecommand\faculdadenome{Faculdade de Tecnologia}\providecommand\faculdadesigla{FT}
 
 
 % COMANDOS: AUTORES
@@ -200,10 +202,12 @@
 
 
 %Comandos para a parte de ficha catalográfica
-\newcommand{\catalogoinfo}[5]{
+\newcommand{\catalogoinfo}[9]{
 	\def\publicacaonome{#1}%
-	\def\palavraschavecatalogoinome{#2}\def\palavraschavecatalogoiinome{#3}\def\palavraschavecatalogoiiinome{#4}\def\palavraschavecatalogoivnome{#5}	
+	\def\palavraschavecatalogoinome{#2}\def\palavraschavecatalogoiinome{#3}\def\palavraschavecatalogoiiinome{#4}\def\palavraschavecatalogoivnome{#5}%
+	\def\keywordiname{#6}\def\keywordiiname{#7}\def\keywordiiiname{#8}\def\keywordivname{#9}
 }
+\providecommand\numeropaginascatalogonome{}
 \providecommand\palavraschavecatalogoinome{}\providecommand\palavraschavecatalogoiinome{}
 \providecommand\palavraschavecatalogoiiinome{}\providecommand\palavraschavecatalogoivnome{}
 \providecommand\publicacaonome{}
@@ -249,7 +253,9 @@
 \newcommand{\fichacatalografica}{}
 
 
-
+\newenvironment{nvjustify}
+ {\vspace*{-\baselineskip}\par\nopagebreak\centering\justify}
+ {\par\ignorespacesafterend}
 
 
 %%###################%%###################
@@ -297,7 +303,7 @@
 %
 \ifdefined\useFtUnB
 \ifnum \useFtUnB=1
-\placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
+\placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf \MakeUppercase{\faculdadenome}}}
 \placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
 \fi
 \fi
@@ -347,7 +353,7 @@
 \fi
 \ifdefined\useFtUnB
 \ifnum \useFtUnB=1
-\placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf FACULDADE DE TECNOLOGIA}}
+\placetextbox{0.51}{0.17}{{\setfonttimes\huge\bf \MakeUppercase{\faculdadenome}}}
 \placetextbox{0.515}{0.12}{{\setfonttimes\Huge\bf UNIVERSIDADE DE BRAS\'{I}LIA}}
 \fi
 \fi
@@ -367,7 +373,7 @@
 
 {\fontsize{11.5}{1.2}\selectfont UNIVERSIDADE DE BRAS\'{I}LIA}\\
 \vspace*{3.5pt}
-{\fontsize{11.5}{1.2}\selectfont FACULDADE DE TECNOLOGIA}\\
+{\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\faculdadenome}}\\
 \vspace*{3.5pt}
 {\fontsize{11.5}{1.2}\selectfont DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 
@@ -438,47 +444,47 @@
 \setcounter{page}{\value{preliminarescounter}}
 \begin{center}
 {\setfonttimes\Large\bf UNIVERSIDADE DE BRAS\'{I}LIA}\\
-{\setfonttimes\Large\bf FACULDADE DE TECNOLOGIA}\\
-{\setfonttimes\Large\bf DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA}\\
+{\setfonttimes\Large\bf \MakeUppercase{\faculdadenome}}\\
+{\setfonttimes\Large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 \vspace*{2cm}
 {\noindent\setfonttimes\Large\bf {\MakeUppercase{\titulolinhainome}}}\\
 {\noindent\setfonttimes\Large\bf \ifthenelse{\equal{\titulolinhaiinome}{}}{\vspace*{7pt}}{\MakeUppercase{\titulolinhaiinome}}}\\% 
-\vspace{0.5cm}
+\vspace{1.5cm}
 {\setfonttimes\Large\bf\MakeUppercase{\autorinome}\vspace*{2mm}}\\
 \ifthenelse{\equal{\autoriinome}{}}{\vspace*{6mm}}{{\setfonttimes\Large\bf\MakeUppercase{\autoriinome}\vspace*{2mm}}\\}
 \ifthenelse{\equal{\autoriiinome}{}}{\vspace*{6mm}}{{\setfonttimes\Large\bf\MakeUppercase{\autoriiinome}\vspace*{2mm}}\\}
 \end{center}
 
-\vspace{0.0cm}
-{\setfonttimes\bf\setlength{\parindent}{0pt}\MakeUppercase{\tipodemonografianome}~SUBMETIDA AO DEPARTAMENTO DE ENGENHARIA EL\'{E}TRICA DA FACULDADE DE TECNOLOGIA DA UNIVERSIDADE DE BRAS\'{I}LIA COMO PARTE DOS REQUISITOS NECESS\'{A}RIOS PARA A OBTEN\c{C}\~{A}O DO GRAU DE \MakeUppercase{\graunome}.
-}\\
-
-{\setfonttimes\large\bf \flushleft{APROVADA POR:}}\\
+\begin{nvjustify}\emergencystretch 3em\hyphenpenalty=10000\footnotesize
+\setfonttimes\bf\setlength{\parindent}{0pt}\MakeUppercase{\tipodemonografianome}\ SUBMETIDA AO DEPARTAMENTO DE \MakeUppercase{\departamento} DA \MakeUppercase{\faculdadenome} DA UNIVERSIDADE DE BRAS\'{I}LIA COMO PARTE DOS REQUISITOS NECESS\'{A}RIOS PARA A OBTEN\c{C}\~{A}O DO GRAU DE \MakeUppercase{\graunomeshort}.
+\end{nvjustify}
+\vspace{1cm}
+{\setfonttimes\footnotesize\bf \flushleft{APROVADA POR:}}\\
 \flushleft
 {	
 	{\small	\bf			
-		\ifthenelse{\equal{\membrodabancainome}{}}{}{\small --------------------------------------------------------------------------\\ \membrodabancainome  \\}
-		\ifthenelse{\equal{\membrodabancainome}{}}{}{\small\membrodabancaifuncaonome \\ } 
+		\ifthenelse{\equal{\membrodabancainome}{}}{}{\footnotesize --------------------------------------------------------------------------\\ \membrodabancainome  \\}
+		\ifthenelse{\equal{\membrodabancainome}{}}{}{\footnotesize\membrodabancaifuncaonome \\ } 
 		
- 		\ifthenelse{\equal{\membrodabancaiinome}{}}{}{\small \vspace{5mm}
+ 		\ifthenelse{\equal{\membrodabancaiinome}{}}{}{\footnotesize \vspace{5mm}
  		--------------------------------------------------------------------------\\ \membrodabancaiinome \\} 
- 		\ifthenelse{\equal{\membrodabancaiinome}{}}{}{\small\membrodabancaiifuncaonome  \\ }
+ 		\ifthenelse{\equal{\membrodabancaiinome}{}}{}{\footnotesize\membrodabancaiifuncaonome  \\ }
 	
-		\ifthenelse{\equal{\membrodabancaiiinome}{}}{}{\small \vspace{5mm}
+		\ifthenelse{\equal{\membrodabancaiiinome}{}}{}{\footnotesize \vspace{5mm}
 		--------------------------------------------------------------------------\\\membrodabancaiiinome \\} 
-		\ifthenelse{\equal{\membrodabancaiiinome}{}}{}{\small\membrodabancaiiifuncaonome \\} 
+		\ifthenelse{\equal{\membrodabancaiiinome}{}}{}{\footnotesize\membrodabancaiiifuncaonome \\} 
 		
-		\ifthenelse{\equal{\membrodabancaivnome}{}}{ }{\small\vspace{5mm}
+		\ifthenelse{\equal{\membrodabancaivnome}{}}{ }{\footnotesize\vspace{5mm}
 		--------------------------------------------------------------------------\\ \membrodabancaivnome  \\} 
-		\ifthenelse{\equal{\membrodabancaivnome}{}}{}{\small\membrodabancaivfuncaonome  \\ } 
+		\ifthenelse{\equal{\membrodabancaivnome}{}}{}{\foo\smalltnotesize\membrodabancaivfuncaonome  \\ } 
 		
-		\ifthenelse{\equal{\membrodabancavnome}{}}{}{\small\vspace{5mm}
+		\ifthenelse{\equal{\membrodabancavnome}{}}{}{\footnotesize\vspace{5mm}
 		--------------------------------------------------------------------------\\ \membrodabancavnome \\} 
-		\ifthenelse{\equal{\membrodabancavnome}{}}{}{\small\membrodabancavfuncaonome \\}  
+		\ifthenelse{\equal{\membrodabancavnome}{}}{}{\footnotesize\membrodabancavfuncaonome \\}  
 	}
-		\vspace{9mm}
+		\vspace{15mm}
 		\begin{flushright}
-		    {\bf\MakeUppercase{Bras\'{i}lia, \dianome\ de\ \mesnome\ de \anonome}.}
+		    {\footnotesize\bf\MakeUppercase{Bras\'{i}lia, \dianome\ de\ \mesnome\ de \anonome}.}
 		\end{flushright}
 }
 \end{titlepage}
@@ -511,30 +517,31 @@
 		\fbox{
  		\parbox{\linewidth}{
 		\MakeUppercase{\autorcatalogonome}\\
-		\titulocatalogonome\ \newline
-		[Distrito Federal] \anonome.\\
-		\lastpageref{pagesLTS.roman}, \lastpageref{LastPage}p., 210 x 297 mm (\departamentosigla/FT/UnB, \graunomeshort, \programadoaluno, \anonome).\\
-		\tipodemonografianome~-- Universidade de Bras\'{i}lia, Faculdade de Tecnologia.\\
+		\titulocatalogonome\ \mbox{[Distrito Federal]} \anonome.\\
+		\lastpageref{pagesLTS.roman}, \lastpageref{LastPage}p., 210 x 297 mm (\departamentosigla/\faculdadesigla/UnB, \graunomeshort, \programadoaluno, \anonome).\\
+		\tipodemonografianome~-- Universidade de Bras\'{i}lia, \faculdadenome.\\
 		Departamento de \departamento\\
 		\begin{tabular}{lll}
 		1. \palavraschavecatalogoinome & \hspace{4cm} &  2. \palavraschavecatalogoiinome \hspace{2cm} \\
 		3. \palavraschavecatalogoiiinome & \hspace{4cm} & 4. \palavraschavecatalogoivnome \hspace{2cm} \\
-		I. \departamentosigla/FT/UnB           &  \hspace{4cm}    &   II. T\'{i}tulo (s\'{e}rie)\hspace{2cm}
+		I. \departamentosigla/\faculdadesigla/UnB           &  \hspace{4cm}    &   II. T\'{i}tulo (s\'{e}rie)\hspace{2cm}
 		\end{tabular}
 		}}\\
 
 		\vspace{5mm}
-		\textbf{REFER\^{E}NCIA BIBLIOGR\'{A}FICA}\\
-		%\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, Tese de doutorado em Engenharia El\'{e}trica, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \numeropaginascatalogonome.
-		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome, \tipodemonografianome, Publica\c{c}\~{a}o \publicacaonome, Departamento de Engenharia El\'{e}trica, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \lastpageref{LastPage}p.
-		\\
+		\textbf{REFER\^{E}NCIA BIBLIOGR\'{A}FICA}%
+		\begin{nvjustify}
+		\MakeUppercase{\autorabreviadocatalogonome} (\anonome). \titulocatalogonome. \tipodemonografianome\ em \programadoaluno, Publica\c{c}\~{a}o \publicacaonome, Departamento de \departamento, Universidade de Bras\'{i}lia, Bras\'{i}lia, DF, \lastpageref{LastPage}p.
+		\end{nvjustify}
 		\vspace{5mm}
 		\textbf{CESS\~{A}O DE DIREITOS}\\
 		AUTOR: \autorinome\\
 		T\'{I}TULO: \titulocatalogonome.\\
 		GRAU: \graunomeshort~~~~~~~~~~~~~~ANO: \anonome\\
 		\vspace{5mm}
+		\begin{nvjustify}
 		\'{E} concedida \`{a} Universidade de Bras\'{i}lia permiss\~{a}o para reproduzir c\'{o}pias desta \MakeLowercase{\tipodemonografianome} e para emprestar ou vender tais c\'{o}pias somente para prop\'{o}sitos acad\^{e}micos e cient\'{i}ficos. O autor reserva outros direitos de publica\c{c}\~{a}o e nenhuma parte dessa \MakeLowercase{\tipodemonografianome} pode ser reproduzida sem autoriza\c{c}\~{a}o por escrito do autor.
+		\end{nvjustify}
 		\vspace{5mm}
 
 		% \begin{center}
@@ -602,7 +609,7 @@
 			}
 		}
 		\vspace{10pt}	
-		Departamento de \departamento~(\departamentosigla) - FT\\
+		Departamento de \departamento~(\departamentosigla) - \faculdadesigla\\
 		Universidade de Bras\'{i}lia (UnB)\\
 		Campus Darcy Ribeiro\\
 		CEP 70919-970 - Bras\'{i}lia - DF - Brasil 	
