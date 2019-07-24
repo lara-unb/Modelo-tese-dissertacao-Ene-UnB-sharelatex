@@ -83,7 +83,7 @@
 %%###################%%###################
 
 % COMANDOS: GRAU
-\newcommand{\grau}[7]{%
+\newcommand{\grau}[8]{%
     \def\graunomeshort{#1}%
     \def\tipodemonografianome{#2}
     \def\departamento{#3}
@@ -91,9 +91,10 @@
     \def\programadoaluno{#5}
     \def\faculdadenome{#6}
     \def\faculdadesigla{#7}
+    \def\programadoalunoOtherLang{#8}
 }%
 \providecommand\graunomeshort{Engenheiro}\providecommand\graunome{Engenheiro Mecatrônico}
-\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}\providecommand\programadoaluno{Engenharia El\'{e}trica}\providecommand\faculdadenome{Faculdade de Tecnologia}\providecommand\faculdadesigla{FT}
+\providecommand\tipodemonografianome{Trabalho de Graduação}\providecommand\departamento{Engenharia Mecatrônica}\providecommand\departamentosigla{ENE}\providecommand\programadoaluno{Engenharia de Sistemas Eletrônicos e de Automação}\providecommand\faculdadenome{Faculdade de Tecnologia}\providecommand\faculdadesigla{FT}\providecommand\programadoaluno{Graduate Program in Electronic and Automation Systems Engineering}
 
 
 % COMANDOS: AUTORES
@@ -199,7 +200,10 @@
     \def\mesnome{#1}\def\dianome{#2}\def\anonome{#3}
 }%
 \providecommand\mesnome{Janeiro}\providecommand\dianome{01}\providecommand\anonome{2017}
-
+\newcommand{\datainfoAnotherLang}[2]{%
+    \def\mesnomeOtherLang{#1}\def\dianomeOtherLang{#2}
+}%
+\providecommand\mesnome{January}\providecommand\dianome{01st}\providecommand\anonome{2017}
 
 %Comandos para a parte de ficha catalográfica
 \newcommand{\catalogoinfo}[9]{
@@ -503,6 +507,7 @@
 %%###################   FICHA CATALOGRÁFICA
 %%###################
 %%###################%%###################
+%"II. título (série)" deve aparecer na ficha para fins de posterior recuperação do documento, NÃO devendo a palavra "título" ser substituída pelo título da tese, mas sim ser mantida, o que significa, para entendimento do SRI (sistema de recuperação da informação), que o acesso primário da obra se dará pelo título. Esse é um detalhe técnico que diz respeito apenas à Biblioteca Central, que irá catalogar e registrar o seu trabalho para posterior recuperação
 % \newcommand{\fichacatalografica}
 % {	
 	\def\titulocatalogonome{\titulolinhainome~\titulolinhaiinome}
@@ -825,14 +830,20 @@
 	\begin{flushleft}
 		{\setfonttimes\Large\bf\noindent\MakeUppercase{#1}}
 	\end{flushleft}
+	\begin{singlespace}
 		{\setfonttimes\normalsize\noindent{\textbf{T\'{i}tulo:} \tituloportuguesnome}}\\
 		{\setfonttimes\normalsize{\textbf{Autor:} \autorinome}}\\
 		\ifthenelse{\equal{\autoriinome}{}}{}{\setfonttimes\normalsize{\textbf{Autor:} \autoriinome}\\}
 		\ifthenelse{\equal{\autoriiinome}{}}{}{\setfonttimes\normalsize{\textbf{Autor:} \autoriiinome}\\}
 		{\setfonttimes\normalsize{\textbf{Orientador:} \orientadornome}}\\
 		\ifthenelse{\equal{\corientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Coorientador:} \corientadornome}\\}
-
-        {\normalsize\noindent#2}
+		{\setfonttimes\normalsize{\textbf{Programa de Pós-Graduação em \programadoaluno}}\\}
+		{\setfonttimes\normalsize{\textbf{Bras\'ilia, \dianome\ de \MakeLowercase{\mesnome}\ de \anonome}}}
+        \end{singlespace}%
+		\vspace{-5mm}
+		\begin{otherlanguage}{portuguese}%
+            {\normalsize\noindent#2}%
+        \end{otherlanguage}
 }
 {
 	\ifthenelse{\equal{#1}{Abstract}}	
@@ -841,16 +852,18 @@
 		\begin{flushleft}
 			{\setfonttimes\Large\bf\noindent\MakeUppercase{#1}}
 		\end{flushleft}
+		\begin{singlespace}
  		{\setfonttimes\normalsize\noindent{\textbf{Title:} \tituloinglesnome}}\\
 		{\setfonttimes\normalsize{\textbf{Author:} \autorinome}}\\
 		\ifthenelse{\equal{\autoriinome}{}}{}{\setfonttimes\normalsize{\textbf{Author:} \autoriinome}\\}
 		\ifthenelse{\equal{\autoriiinome}{}}{}{\setfonttimes\normalsize{\textbf{Author:} \autoriiinome}\\}
 		\ifthenelse{\equal{\orientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Supervisor:} \orientadornome}\\}
-		\ifthenelse{\equal{\corientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Co-Supervisor:} \corientadornome}\\}\\
+		\ifthenelse{\equal{\corientadornome}{}}{}{\setfonttimes\normalsize{\textbf{Co-Supervisor:} \corientadornome}\\}
 		% {\setfonttimes\normalsize{\textbf{Supervisor:} \orientadornome}\\}
 		% {\setfonttimes\normalsize{\textbf{Supervisor:} Prof. Jo\~{a}o Yoshiyuki Ishihara}}\\
 		% {\setfonttimes\normalsize{\textbf{Co-Supervisor:} Prof. Bruno Vilhena Adorno}}\\
-		
+		{\setfonttimes\normalsize{\textbf{Graduate Program in \programadoalunoOtherLang}\\}}
+		{\setfonttimes\normalsize{\textbf{Bras\'ilia, \mesnomeOtherLang\ \dianomeOtherLang, \anonome}}}
 		% 
 		% \ifthenelse{\equal{\mesnome}{janeiro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th January \anonome}}\\}{}
 		% \ifthenelse{\equal{\mesnome}{fevereiro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th February \anonome}}\\}{}
@@ -865,7 +878,11 @@
 		% \ifthenelse{\equal{\mesnome}{novembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th November \anonome}}\\}{}
 		% \ifthenelse{\equal{\mesnome}{dezembro}}{{\setfonttimes\normalsize\bf\noindent{Bras\'{i}lia, \dianome th December \anonome}}\\}{}
 % 		\end{flushleft}
-        {\normalsize\noindent#2}
+		\end{singlespace}
+		\vspace{-5mm}
+        \begin{otherlanguage}{english}%
+        	{\normalsize\noindent#2}%
+        \end{otherlanguage}
 	}
 	{\ifthenelse{\equal{#1}{Résumé}}
 	{
