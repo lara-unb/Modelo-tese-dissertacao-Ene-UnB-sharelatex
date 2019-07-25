@@ -375,11 +375,9 @@
 \stepcounter{preliminarescounter}
 \begin{center}
 
-{\fontsize{11.5}{1.2}\selectfont UNIVERSIDADE DE BRAS\'{I}LIA}\\
-\vspace*{3.5pt}
-{\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\faculdadenome}}\\
-\vspace*{3.5pt}
-{\fontsize{11.5}{1.2}\selectfont DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
+{\setfonttimes\Large\bf UNIVERSIDADE DE BRAS\'{I}LIA}\\
+{\setfonttimes\Large\bf \MakeUppercase{\faculdadenome}}\\
+{\setfonttimes\Large\bf DEPARTAMENTO DE \MakeUppercase{\departamento}}\\
 
 \vspace*{2.25cm}
 
@@ -403,25 +401,26 @@
 \end{center}
 
 \StrLen{\departamento}[\titulosize]
-\ifthenelse{\titulosize > 35}{\newcommand{\sizeengtable}{0.7}}{\newcommand{\sizeengtable}{0.55}}
+\ifthenelse{\titulosize > 35}{\newcommand{\sizeengtable}{0.7}}{\newcommand{\sizeengtable}{0.6}}
 
-\placetextbox{0.5}{0.26}{%
-	\begin{tabular}{>{\centering}p{\sizeengtable\columnwidth}}
-		\fontsize{11.5}{1.2}\selectfont \MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\programadoaluno}}
+\placetextbox{0.525}{0.26}{%
+	\begin{tabular}{>{\centering}p{\sizeengtable\textwidth}}
+		\setfonttimes\normalsize
+		\MakeUppercase{\tipodemonografianome \space EM \MakeUppercase{\programadoaluno}}
 	\end{tabular}%
 }
 
 \ifthenelse{\equal{\publicacaonome}{}}{}{
 \placetextbox{0.404}{0.142}{
     \begin{tabular}{>{\raggedright}p{0.7\columnwidth}}
-		\fontsize{11.5}{1.2}\selectfont PUBLICA\c{C}\~{A}O: \publicacaonome%
+		\setfonttimes\normalsize PUBLICA\c{C}\~{A}O: \publicacaonome%
 	\end{tabular}%	
 }
 }
 % \placetextbox{0.2842}{0.116}{\fontsize{11.5}{1.2}\selectfont BRAS\'{I}LIA/DF: \MakeUppercase{\mesnome} \space - \anonome}	
 \placetextbox{0.404}{0.1165}{
     \begin{tabular}{>{\raggedright}p{0.7\columnwidth}}
-		\fontsize{11.5}{1.2}\selectfont BRAS\'{I}LIA/DF: \MakeUppercase{\mesnome}\space- \anonome
+		\setfonttimes\normalsize BRAS\'{I}LIA/DF: \MakeUppercase{\mesnome}\space- \anonome
 	\end{tabular}%		
 }	
 
